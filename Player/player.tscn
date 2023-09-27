@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwvwapeolutly"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_yyuua"]
+[ext_resource type="Texture2D" uid="uid://dny40w01j1yf0" path="res://Assets/ship.png" id="2_omtp4"]
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(512, 300)
+script = ExtResource("1_yyuua")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 3.14159
+scale = Vector2(3, 3)
+texture = ExtResource("2_omtp4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+rotation = -3.14159
+scale = Vector2(3, 3)
+polygon = PackedVector2Array(3, -16, 6.66667, -11, 8, -6, 12.6667, -1.66667, 10.3333, 1.33333, 13, 5, 11.3333, 9.33333, 9, 11, 7.33333, 11, 7.33334, 15, 3.00002, 15, -1.66667, 11, -3.99998, 13, -9.66666, 13, -12, 9.66666, -10.3333, 6.33333, -7.33333, 4.66666, -10.6667, 1.66666, -8.33333, -1, -9.66667, -2.33334, -7.33333, -6, -7.33333, -11, -5.33333, -15, -1, -15, 0, -16)

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var health = 5
 var speed = 0
 var acc = 20
 var decel = 5
@@ -9,8 +10,10 @@ var rotSpeed = 0
 var rotAcc = 0.02
 const maxRotSpeed = 0.14
 const minRotSpeed = 0
-var nose = Vector2(0, -60)
+var nose = Vector2(0, -70)
 var Bullet = load("res://Player/bullet.tscn")
+var Explosion = load("res://Effects/Explosion.tscn")
+var Effects = null
 
 func get_input():
 	if Input.is_action_pressed("Rotate Left"):
@@ -39,6 +42,18 @@ func get_input():
 		if (rotSpeed <= minRotSpeed):
 			rotSpeed = 0
 
+func damage(d):
+	health -= d
+	if health <= 0:
+		Effects = get_node_or_null("/root/Game/FX")
+		if Effects != null:
+			var explosion = Explosion.instantiate()
+			Effects.add_child(explosion)
+			explosion.global_position = global_position
+			hide()
+			await explosion.animation_finished
+		queue_free()
+
 func _physics_process(_delta):
 	get_input()
 	
@@ -53,7 +68,10 @@ func _physics_process(_delta):
 		var bullet = Bullet.instantiate()
 		bullet.rotation = rotation
 		bullet.position = position + nose.rotated(rotation)
-		var Effects = get_node_or_null("/root/Game/FX")
-		if Effects != null:
-			Effects.add_child(bullet)
+		var effects = get_node_or_null("/root/Game/FX")
+		if effects != null:
+			effects.add_child(bullet)
 
+func _on_area_2d_body_entered(body):
+	if body.name != "Player":
+		damage(100)

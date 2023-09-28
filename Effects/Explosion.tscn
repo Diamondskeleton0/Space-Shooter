@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://cenj4vqn7wocy"]
+
+[ext_resource type="Texture2D" uid="uid://8ag1t6rae3ni" path="res://Assets/explosion1.png" id="1_5t75o"]
+[ext_resource type="Texture2D" uid="uid://1ggy4itrb3dr" path="res://Assets/explosion2.png" id="2_rvh8q"]
+[ext_resource type="Texture2D" uid="uid://clt1mqhif1ttv" path="res://Assets/explosion3.png" id="3_loied"]
+[ext_resource type="Texture2D" uid="uid://dq4ria48yu42b" path="res://Assets/explosion4.png" id="4_4q5ir"]
+[ext_resource type="Script" path="res://Effects/Explosion.gd" id="5_4dchf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5pi3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5t75o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rvh8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_loied")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4q5ir")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Node2D" type="AnimatedSprite2D"]
+texture_filter = 3
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u5pi3")
+frame = 3
+frame_progress = 0.792715
+script = ExtResource("5_4dchf")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

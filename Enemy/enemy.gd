@@ -29,6 +29,7 @@ func _on_area_2d_body_entered(body):
 func damage(d):
 	health -= d
 	if health <= 0:
+		Global.update_score(500)
 		queue_free()
 
 func _ready():
@@ -39,5 +40,6 @@ func _ready():
 func _physics_process(_delta):
 	position += direction
 	position.y = initial_position.y + sin(position.x/20)*wobble
-	if position.x > 1200:
+	if position.x > Global.VP.x:
 		queue_free()
+	

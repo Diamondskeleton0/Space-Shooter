@@ -45,6 +45,7 @@ func get_input():
 func damage(d):
 	health -= d
 	if health <= 0:
+		Global.update_lives(-1)
 		Effects = get_node_or_null("/root/Game/FX")
 		if Effects != null:
 			var explosion = Explosion.instantiate()
@@ -58,8 +59,8 @@ func _physics_process(_delta):
 	get_input()
 	
 	rotation += rotSpeed
-	position.x = wrap(position.x, -50, 1200)
-	position.y = wrap(position.y, -50, 700)
+	position.x = wrap(position.x, -50, Global.VP.x)
+	position.y = wrap(position.y, -50, Global.VP.y)
 	velocity = velocity.normalized() * clamp(velocity.length(), 0, speed)
 	
 	move_and_slide()

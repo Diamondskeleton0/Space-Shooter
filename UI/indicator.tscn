@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxfrj332ur8qm"]
+
+[ext_resource type="Texture2D" uid="uid://dny40w01j1yf0" path="res://Assets/ship.png" id="1_ascma"]
+
+[node name="Indicator" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = ExtResource("1_ascma")

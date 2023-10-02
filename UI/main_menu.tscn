@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhaetaoaam00n"]
+
+[ext_resource type="Script" path="res://UI/Main_Menu.gd" id="1_pm0dw"]
+[ext_resource type="FontFile" uid="uid://okc11aicrqe8" path="res://Hyperspace Bold.otf" id="2_p00jj"]
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pm0dw")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 271.0
+offset_right = 718.0
+offset_bottom = 297.0
+theme_override_fonts/font = ExtResource("2_p00jj")
+text = "Have you ever wanted to shoot space?"
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1010.0
+offset_top = 387.0
+offset_right = 1061.0
+offset_bottom = 418.0
+theme_override_fonts/font = ExtResource("2_p00jj")
+text = "Yeah!"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1010.0
+offset_top = 453.0
+offset_right = 1063.0
+offset_bottom = 484.0
+theme_override_fonts/font = ExtResource("2_p00jj")
+text = "No???"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

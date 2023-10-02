@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw3e2hlylou7q"]
+
+[ext_resource type="Script" path="res://UI/End_Game.gd" id="1_kgxj8"]
+[ext_resource type="FontFile" uid="uid://okc11aicrqe8" path="res://Hyperspace Bold.otf" id="2_xt5t8"]
+
+[node name="End_Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kgxj8")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 31.0
+offset_right = 156.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("2_xt5t8")
+
+[node name="Play Again" type="Button" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 37.0
+offset_right = 129.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("2_xt5t8")
+text = "Try again!"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 93.0
+offset_right = 82.0
+offset_bottom = 122.0
+theme_override_fonts/font = ExtResource("2_xt5t8")
+text = "Quit."
+
+[connection signal="pressed" from="Play Again" to="." method="_on_play_pressed"]

@@ -9,7 +9,7 @@ Godot 4.0
 You get to actively dodge and attack obstacles in real time, while other enemies try to take you out too
 
 ## References
-(Hyperspace Bold)[https://www.dafont.com/hyperspace.font]
+[Hyperspace Bold](https://www.dafont.com/hyperspace.font)
 
 ## Future Development
 None

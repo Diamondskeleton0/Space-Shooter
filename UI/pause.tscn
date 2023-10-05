@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdo4lqvf70au8"]
+
+[ext_resource type="Script" path="res://UI/pause.gd" id="1_jwekl"]
+[ext_resource type="FontFile" uid="uid://okc11aicrqe8" path="res://Hyperspace Bold.otf" id="2_u6sgu"]
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jwekl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 1173.0
+offset_bottom = 644.0
+color = Color(0, 0, 0, 0.784314)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 152.0
+offset_right = 690.0
+offset_bottom = 218.0
+theme_override_fonts/font = ExtResource("2_u6sgu")
+theme_override_font_sizes/font_size = 50
+text = "Paused"
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]

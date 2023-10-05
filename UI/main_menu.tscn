@@ -14,29 +14,32 @@ script = ExtResource("1_pm0dw")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 422.0
-offset_top = 271.0
-offset_right = 718.0
-offset_bottom = 297.0
+offset_left = 101.0
+offset_top = 80.0
+offset_right = 1073.0
+offset_bottom = 140.0
 theme_override_fonts/font = ExtResource("2_p00jj")
+theme_override_font_sizes/font_size = 45
 text = "Have you ever wanted to shoot space?"
 
 [node name="Play" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1010.0
-offset_top = 387.0
-offset_right = 1061.0
-offset_bottom = 418.0
+offset_left = 535.0
+offset_top = 255.0
+offset_right = 631.0
+offset_bottom = 301.0
 theme_override_fonts/font = ExtResource("2_p00jj")
+theme_override_font_sizes/font_size = 30
 text = "Yeah!"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1010.0
-offset_top = 453.0
-offset_right = 1063.0
-offset_bottom = 484.0
+offset_left = 541.0
+offset_top = 323.0
+offset_right = 624.0
+offset_bottom = 363.0
 theme_override_fonts/font = ExtResource("2_p00jj")
+theme_override_font_sizes/font_size = 25
 text = "No???"
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

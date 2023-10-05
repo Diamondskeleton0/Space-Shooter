@@ -14,28 +14,30 @@ script = ExtResource("1_kgxj8")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 116.0
-offset_top = 31.0
-offset_right = 156.0
-offset_bottom = 54.0
+offset_left = 28.0
+offset_top = 36.0
+offset_right = 68.0
+offset_bottom = 59.0
 theme_override_fonts/font = ExtResource("2_xt5t8")
+theme_override_font_sizes/font_size = 25
 
 [node name="Play Again" type="Button" parent="."]
 layout_mode = 0
 offset_left = 25.0
-offset_top = 37.0
+offset_top = 114.0
 offset_right = 129.0
-offset_bottom = 66.0
+offset_bottom = 143.0
 theme_override_fonts/font = ExtResource("2_xt5t8")
 text = "Try again!"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
 offset_left = 25.0
-offset_top = 93.0
+offset_top = 169.0
 offset_right = 82.0
-offset_bottom = 122.0
+offset_bottom = 198.0
 theme_override_fonts/font = ExtResource("2_xt5t8")
 text = "Quit."
 
 [connection signal="pressed" from="Play Again" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

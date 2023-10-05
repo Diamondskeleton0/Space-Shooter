@@ -4,6 +4,7 @@ var y_positions = [100,150,200,500,550]
 var initial_position = Vector2.ZERO
 var direction = Vector2(1.5,0)
 var wobble = 30.0
+var dying = false
 
 var health = 5
 
@@ -14,7 +15,7 @@ var Explosion = load("res://Effects/Explosion.tscn")
 func _on_timer_timeout():
 	var Player = get_node_or_null("/root/Game/PlayerContainer/Player")
 	Effects = get_node_or_null("/root/Game/FX")
-	if Player != null and Effects != null:
+	if Player != null and Effects != null && !dying:
 		var bullet = Bullet.instantiate()
 		var d = global_position.angle_to_point(Player.global_position) + PI/2
 		bullet.rotation = d
@@ -22,7 +23,7 @@ func _on_timer_timeout():
 		Effects.add_child(bullet)
 
 func _on_area_2d_body_entered(body):
-	if body.name == "Player":
+	if body.name == "Player" && !dying:
 		body.damage(100)
 		damage(100)
 
@@ -30,9 +31,12 @@ func damage(d):
 	health -= d
 	if health <= 0:
 		Global.update_score(500)
-		queue_free()
+		dying = true
+		$Sprite2D.modulate.a = 0
+		$Boom.emitting = true
 
 func _ready():
+	randomize()
 	initial_position.x = -100
 	initial_position.y = y_positions[randi() % y_positions.size()]
 	position = initial_position
@@ -41,5 +45,7 @@ func _physics_process(_delta):
 	position += direction
 	position.y = initial_position.y + sin(position.x/20)*wobble
 	if position.x > Global.VP.x:
+		queue_free()
+	if dying && !$Boom.emitting:
 		queue_free()
 	

@@ -1,13 +1,39 @@
-[gd_scene load_steps=7 format=3 uid="uid://cklw27gxhevkn"]
+[gd_scene load_steps=8 format=3 uid="uid://cklw27gxhevkn"]
 
-[ext_resource type="PackedScene" uid="uid://1ciaud8fftwh" path="res://Enemy/enemy.tscn" id="2_qpkpi"]
+[ext_resource type="Script" path="res://Enemy/EnemyContainer.gd" id="2_jugmd"]
 [ext_resource type="PackedScene" uid="uid://drlkdnhalidms" path="res://Asteroid/asteroid.tscn" id="2_xw38k"]
 [ext_resource type="Script" path="res://Player/PlayerContainer.gd" id="3_jibq2"]
 [ext_resource type="Script" path="res://UI/HUD.gd" id="4_cccxj"]
 [ext_resource type="FontFile" uid="uid://okc11aicrqe8" path="res://Hyperspace Bold.otf" id="5_4vcdn"]
 [ext_resource type="Script" path="res://UI/Menu.gd" id="5_i1g5r"]
+[ext_resource type="Texture2D" uid="uid://cqulnnytkpobu" path="res://Assets/bgThing.png" id="7_ur18v"]
 
 [node name="Game" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -3.0
+offset_top = -5.0
+offset_right = 1156.0
+offset_bottom = 655.0
+color = Color(0.0784314, 0.0352941, 0.196078, 1)
+
+[node name="bgStar" type="Sprite2D" parent="ColorRect"]
+texture_filter = 3
+position = Vector2(900, 369)
+scale = Vector2(3, 3)
+texture = ExtResource("7_ur18v")
+
+[node name="bgStar2" type="Sprite2D" parent="ColorRect"]
+texture_filter = 3
+position = Vector2(242, 536)
+scale = Vector2(3, 3)
+texture = ExtResource("7_ur18v")
+
+[node name="bgStar3" type="Sprite2D" parent="ColorRect"]
+texture_filter = 3
+position = Vector2(458, 151)
+scale = Vector2(3, 3)
+texture = ExtResource("7_ur18v")
 
 [node name="AsteroidContainer" type="Node2D" parent="."]
 
@@ -20,8 +46,7 @@ position = Vector2(900, 600)
 [node name="FX" type="Node2D" parent="."]
 
 [node name="EnemyContainer" type="Node2D" parent="."]
-
-[node name="Enemy" parent="EnemyContainer" instance=ExtResource("2_qpkpi")]
+script = ExtResource("2_jugmd")
 
 [node name="PlayerContainer" type="Node2D" parent="."]
 script = ExtResource("3_jibq2")

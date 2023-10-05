@@ -36,12 +36,10 @@ func update_lives(l):
 	if hud != null:
 		hud.update_lives()
 
-func _unhandled_input(event):
+func _input(event):
 	if event.is_action_pressed("Menu"):
 		var Menu = get_node_or_null("/root/Game/UI/Menu")
-		if Menu == null:
-			get_tree().quit()
-		else:
+		if Menu != null:
 			if Menu.visible:
 				get_tree().paused = false
 				Menu.hide()
@@ -49,10 +47,6 @@ func _unhandled_input(event):
 				get_tree().paused = true
 				Menu.show()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	if Input.is_action_pressed("Menu"):
-		get_tree().quit()
 		
 func _physics_process(_delta):
 	var Asteroid_Container = get_node_or_null("/root/Game/Asteroid_Container")
